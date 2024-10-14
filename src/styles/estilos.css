@@ -1,0 +1,331 @@
+/* Clases para grises (de oscuro a claro) */
+.text-gris1 {
+    color: var(--gris1);
+}
+
+.text-gris2 {
+    color: var(--gris2);
+}
+
+.text-gris3 {
+    color: var(--gris3);
+}
+
+.text-gris4 {
+    color: var(--gris4);
+}
+
+.text-gris5 {
+    color: var(--gris5);
+}
+
+.text-gris6 {
+    color: var(--gris6);
+}
+
+/* Clases para colores (de oscuro a claro) */
+.text-color1 {
+    color: var(--color1);
+}
+
+.text-color2 {
+    color: var(--color2);
+}
+
+.text-color3 {
+    color: var(--color3);
+}
+
+.text-color4 {
+    color: var(--color4);
+}
+
+.text-color5 {
+    color: var(--color5);
+}
+
+
+.copy-message {
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--gris6);
+    color: var(--gris1);
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    transition:  0.5s ease-in-out;
+    transform: translate(300%, 0%); /* Centrar el mensaje respecto al mouse */
+    pointer-events: none; /* Evita que el mensaje interfiera con eventos del mouse */
+}
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+.bentos{
+    display: grid;
+    margin: 0 auto;
+    max-width: 1000px;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: minmax(150px,auto);
+    grid-auto-flow: row;
+    grid-gap: 14px;
+}
+
+.caja {
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: end; /* Alinea verticalmente al centro */
+    align-items: start; /* Centra horizontalmente */
+    height: 350px;
+    gap: 10px; /* Espacio entre h1 y h2 */
+    transition: 0.3s ease;
+    cursor: pointer;
+    text-align: left; /* Asegura que el texto esté centrado */
+    background-size: cover;
+    color: var(--gris4);
+    background-color: var(--gris1);
+    background-blend-mode: multiply;
+}
+
+.caja:hover {
+    transform: scale(1.02); /* Escala la caja al pasar el cursor */
+    background: var(--gris1);
+    color:var(--gris6);
+    background-size: cover;
+    background-blend-mode: multiply;
+    border: 2px solid var(--color3);
+}
+
+.c1{
+    grid-column: span 2;
+
+}
+
+.expand:checked + .caja {
+    grid-column: span 3; /* Expande a 3 columnas */
+    height: 570px; /* Altura más grande */
+    background: var(--gris6);
+    background-size: contain;
+    transition: 0.3s ease;
+    background-blend-mode: multiply;
+    color: var(--gris6);
+    border: 3px solid var(--color3);
+  }
+
+  /* Ocultar checkbox */
+  .expand {
+    display: none;
+    }
+    
+    .caja h1 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 4px;
+        padding-left: 4px;
+    }
+
+
+.expand:checked +   .caja h1 {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 4px;
+        padding-left: 4px;
+    }
+    
+    .caja h2 {
+        font-size: 12px;
+        font-weight: normal;
+        margin: 4px;
+        opacity: 0.7; 
+        color: var(--gris4);
+    }
+
+    .expand:checked +   .caja h2 {
+        font-size: 12px;
+        font-weight: normal;
+        margin: 4px;
+        padding-left: 4px;
+    }
+
+.expand:checked + .caja div{
+    background-color: var(--gris1);
+    margin: 0px;
+    padding-block: 0px;
+    padding-top: 24px;
+}
+
+.caja div{
+    margin: 2px;
+    padding-block: 0px;
+    padding-inline: 4px;
+}
+
+.menu a{
+    border-radius: 0.5rem;
+    background-color: var(--gris1);
+    opacity: 0.85;
+    padding-block: 4px;
+    padding-inline: 8px;
+
+}
+
+.icon-link {
+    display: flex; /* Usa flexbox para el contenedor */
+    flex-direction: column; /* Alinea elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: var(--gris6); /* Cambia el color del texto según sea necesario */
+}
+
+.icon {
+    margin-bottom: 5px; /* Espacio entre el SVG y el texto */
+}
+
+/* Estilos generales para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .bentos {
+        grid-template-columns: 1fr; /* Cambia a una columna */
+        grid-gap: 10px;
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+        padding: 10px; /* Añade padding para dar espacio en los márgenes */
+    }
+
+    .caja {
+        height: auto; /* Permite que la altura se ajuste al contenido */
+        flex-direction: column; /* Mantén los elementos apilados verticalmente */
+        padding: 16px;
+        gap: 6px; /* Ajusta el espacio entre los títulos */
+    }
+
+    .caja h1 {
+        font-size: 16px;
+    }
+
+    .caja h2 {
+        font-size: 14px;
+    }
+
+    .expand:checked + .caja {
+        grid-column: span 1; /* No expandir en móvil */
+        height: auto;
+    }
+
+    header {
+        right: 10px; /* Ajusta el margen lateral del header */
+    }
+
+    .menu a {
+        padding: 8px 12px; /* Espacio ajustado para botones */
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para pantallas medianas (tabletas) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .bentos {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tabletas */
+    }
+
+    .caja {
+        height: 300px; /* Ajustar altura para tablets */
+    }
+
+    .menu a {
+        font-size: 15px;
+    }
+}
+@media (hover: none) {
+    .caja:hover {
+        transform: none; /* Desactiva el escalado al hover */
+    }
+}
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+    }
+
+    .menu {
+        display: none; /* Oculto inicialmente */
+    }
+
+    .menu.open {
+        display: block; /* Se muestra al abrir el menú */
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        background: var(--gris2);
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
+
+@keyframes showsection{
+    from {
+        opacity: 0; scale: 5%;
+
+    }
+    to{
+        opacity: 1; scale: 100%;
+    }
+}
+
+section {
+    view-timeline-name: --reveal ;
+    animation-name: showsection;
+    animation-fill-mode: both;
+    animation-timeline: --reveal;
+    animation-range: entry 1% cover 30%;
+}
+
+/* Para pantallas pequeñas (smartphones verticales) */
+@media (max-width: 480px) {
+    .bentos {
+        grid-template-columns: 1fr; /* Una columna */
+        grid-gap: 10px; /* Ajusta el espacio entre cajas */
+    }
+
+    .caja {
+        height: 250px; /* Reducir la altura */
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+    }
+
+    .caja h1 {
+        font-size: 16px;
+    }
+
+    .caja h2 {
+        font-size: 10px;
+    }
+}
+
+/* Para pantallas medianas (tablets y móviles horizontales) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .bentos {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        grid-gap: 12px;
+    }
+
+    .caja {
+        height: 300px;
+    }
+
+    .caja h1 {
+        font-size: 18px;
+    }
+
+    .caja h2 {
+        font-size: 12px;
+    }
+}
+
+

@@ -1,0 +1,117 @@
+<div class="bentos py-4">
+    <input type="checkbox" class="expand" id="toggle1">
+    <label class="caja c1" for="toggle1"
+        style="background-image: url('public/Pr1.png');">
+        <div>
+            <h1>
+                Bank Fraud Detection with Machine Learning
+            </h1>
+            <h2>
+                Developed a machine learning model to detect fraudulent transactions using historical banking data. Optimized feature engineering and classification algorithms to improve accuracy.
+            </h2>
+        </div>
+    </label>
+    
+    <input type="checkbox" class="expand" id="toggle2">
+    <label class="caja c2" for="toggle2"
+        style="background-image: url('public/pr2.png');">
+        <div>
+            <h1>
+                Real Estate Price Modeling through Web Scraping and Data Analysis
+            </h1>
+            <h2>
+                Automated the extraction of real estate listings from multiple sources, analyzing rental prices and market trends. Identified pricing patterns and correlations between property features and rental rates.
+            </h2>
+        </div>
+    </label>
+
+    <input type="checkbox" class="expand" id="toggle3">
+    <label class="caja c2" for="toggle3"
+        style="background-image: url('public/pr3.png');">
+        <div>
+            <h1>
+                Behavioral Segmentation with Unsupervised Learning
+            </h1>
+            <h2>
+                Applied K-means clustering on sales data to segment customers based on behavior and profitability. Developed targeted strategies for each cluster to enhance marketing efforts.
+            </h2>
+        </div>
+    </label>
+    
+    <input type="checkbox" class="expand" id="toggle4">
+    <label class="caja c1" for="toggle4"
+        style="background-image: url('public/pr4.png');">
+        <div>
+            <h1>
+                Sales Forecasting with Time Series Analysis
+            </h1>
+            <h2>
+                Developed a forecasting model using machine learning techniques to analyze sales data. Incorporated seasonal decomposition and regression analysis to capture trends. The results provided actionable insights for demand planning and revenue optimization.
+            </h2>
+        </div>
+    </label>
+
+    <input type="checkbox" class="expand" id="toggle5">
+    <label class="caja c1" for="toggle5"
+        style="background-image: url('public/pr5.png');">
+        <div>
+            <h1>
+                Executive Overview Dashboard for Financial KPIs
+            </h1>
+            <h2>
+                Developed an Executive Yearly Summary Dashboard to track essential financial KPIs. Utilized data visualization techniques to present trends, variances, and insights effectively. The dashboard enables executives to assess financial health and strategic direction at a glance.
+            </h2>
+        </div>
+    </label>
+
+    <input type="checkbox" class="expand" id="toggle6">
+    <label class="caja c2" for="toggle6"
+        style="background-image: url('public/pr6.png');">
+        <div>
+            <h1>
+                Employee Performance Analytics
+            </h1>
+            <h2>
+                Developed an analytics solution to assess employee performance metrics over time. Analyzed factors affecting performance and provided actionable insights for HR management.
+            </h2>
+        </div>
+    </label>
+</div>
+
+<script>
+    document.querySelectorAll('.expand').forEach((checkbox, index) => { // Agregamos index como segundo parámetro
+        checkbox.addEventListener('change', function(event) {
+            const target = event.target as HTMLInputElement; // Aquí `target` es el checkbox
+            const label = document.querySelector(`label[for="${target.id}"]`); // Encuentra el label correspondiente
+
+            if (target.checked && label) {
+                const caja = label; // El label tiene la clase de la caja
+                
+                // Obtener la posición y del elemento
+                const rect = caja.getBoundingClientRect();
+                const scrollY = window.scrollY || window.pageYOffset; // Obtener la posición actual del scroll
+                const positionY = rect.top + scrollY; // Calcular la posición y en el documento (parte inferior de la caja)
+
+                // Desplazar suavemente a la posición deseada
+                const additionalOffset = -50; // Desplazamiento adicional
+                const viewportHeight = window.innerHeight; // Altura de la ventana del navegador
+
+                // Condicional para el índice 6 (que corresponde a la caja 6)
+                if (index === 6) {
+                    // Implementar lógica específica para el índice 6
+                    const positionBY = rect.bottom + scrollY; // Calcular la posición inferior de la caja 6
+                    window.scrollTo({
+                        top: positionBY + additionalOffset, // Sumar desplazamiento adicional
+                        behavior: 'smooth', // Desplazamiento suave
+                    });
+                } else {
+                    // Para todas las otras cajas
+                    window.scrollTo({
+                        top: positionY + additionalOffset, // Sumar desplazamiento adicional
+                        behavior: 'smooth', // Desplazamiento suave
+                    });
+                }
+            }
+        });
+    });
+</script>

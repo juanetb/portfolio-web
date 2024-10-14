@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Badge from '../components/Badge.astro';
+import Experience from '../components/Experience.astro';
+import Sectioncontainer from '../components/Sectioncontainer.astro';
+import Projects from '../components/Projects.astro';
+import Tech from '../components/tech.astro';
+
+
+
+---
+
+<Layout title="Juan Torres Portafolio Ciencia de datos BI">
+	<main class="px-4">
+		<Sectioncontainer id="about" class="about-section">
+			<img class="rounded-full w-16 h-16" 
+        	src="https://media.licdn.com/dms/image/v2/D4E03AQEK-8-eUvbjPw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1694812766949?e=1733961600&v=beta&t=yEQD-TUpY-_ye9_j95_gNtA1rEicsllphwZEBkl67XE" 
+       		 alt="juan photo"
+       		  />
+
+			<h1 class="text-4xl font-bold flex flex-row gap-x-4 py-4 text-gris6">
+				Juan Esteban Torres 
+			</h1>
+			<h2 class="py-4 text-gris6 opacity-70 text-[16px] text-balance" style="font-weight: normal;">
+				Over 4 years experience in data-driven decision-making. Certified by IBM in SQL for Data Science, I bring proficiency in data analysis tools such as Tableau, Power BI, and Excel. I have honed my expertise in translating key performance indicators into actionable insights, driving continuous improvement across multidisciplinary projects. Managed a portfolio of engineering projects, ensuring alignment with schedules and budgets.
+			</h2>
+
+			<nav class="gap-x-2 flex">		
+				<a
+				href="https://www.linkedin.com/in/juan-torresbotero/?locale=en_US"
+				target="_blank"
+				rel="noopener"
+				class="text-gris2 border-[var(--gris-2)] text-xs rounded-lg border flexh justify-center items-center gap-x-2 py-1 px-2
+				hover:scale-110 hover:bg-white/10 transition"
+				>
+				LinkedIn </a>
+
+				<a class="text-gris2 border-[var(--gris-2)] text-xs rounded-lg border flexh justify-center items-center gap-x-2 py-1 px-2
+				hover:scale-110 hover:bg-white/10 transition"
+				href="https://wa.me/573115903286?text=Hola%20Juan%2C%20quiero%20contactarte" target="_blank"
+				>
+				+57 311 590 3286
+				</a>				
+
+				<a href="#" class="text-gris2 border-[var(--gris-2)] text-xs rounded-lg border flexh justify-center items-center gap-x-2 py-1 px-2
+				hover:scale-110 hover:bg-white/10 transition" 
+				onclick="copyEmail(event)">juantorresbotero@gmail.com</a>
+				<div id="copy-message" class="copy-message">Correo copiado!</div>
+
+			</nav>
+		</Sectioncontainer>
+
+		<Sectioncontainer id="experience">
+			<h2>Work Experience</h2>
+			<Experience />
+		</Sectioncontainer>
+
+		<Sectioncontainer id="projects">
+			<h2>Projects</h2>
+			<Projects />
+		</Sectioncontainer>
+
+		<Sectioncontainer id="tech">
+			<h2>Tech Stack</h2>
+			<Tech/>
+		</Sectioncontainer>
+
+	</main>
+
+	<script is:inline>
+		function copyEmail(event) {
+		  event.preventDefault(); // Evita la navegación al hacer clic en el enlace
+	
+		  const email = "juantorresbotero@gmail.com";
+		  navigator.clipboard.writeText(email).then(() => {
+			const message = document.getElementById("copy-message");
+			if (message) {
+			  message.classList.add("show");
+	
+			  // Ocultar el mensaje después de 2 segundos
+			  setTimeout(() => {
+				message.classList.remove("show");
+			  }, 1500);
+			}
+		  }).catch(err => {
+			console.error("Error al copiar el correo:", err);
+		  });
+		}
+	  </script>
+</Layout>
