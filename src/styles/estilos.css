@@ -320,12 +320,33 @@ section {
     }
 
     .caja h1 {
-        font-size: 18px;
+        font-size: 12px;
     }
 
     .caja h2 {
+        font-size: 8px;
+    }
+
+    .expand:checked + .caja h1{
         font-size: 12px;
     }
+    .expand:checked + .caja h2{
+        font-size: 8px;
+    }
+
+    .expand:checked + .caja {
+        grid-column: span 2; 
+        width: 460px;
+        height: 360px; 
+        background: var(--gris6);
+        background-size: contain;
+        transition: 0.3s ease;
+        background-blend-mode: multiply;
+        color: var(--gris6);
+        border: 3px solid var(--color3);
+        background-repeat: no-repeat;
+      }
+
 }
 
 
