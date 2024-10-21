@@ -22,7 +22,7 @@ const { title } = Astro.props;
 		<link rel="stylesheet" href="/estilos.css">
 	</head>
 	<body>
-		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,150,0.3),rgba(255,255,255,0))]"></div>
+		<div class=" fixed top-0 z-[-2] h-screen w-screen bg-[color:var(--gris0)] bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,var(--color1),rgba(255,255,255,0))]"></div>
 		<Header />
 		<slot />
 	</body>
@@ -33,12 +33,13 @@ const { title } = Astro.props;
 <style is:global>
 	:root {
 		/* Grises (de oscuro a claro) */
-		--gris1: hsl(45, 3%, 15%);
-    	--gris2: hsl(45, 12%, 44%);
+		--gris0:hsl(45, 10%, 3%);
+		--gris1: hsl(45, 3%, 37%);
+    	--gris2: hsl(45, 4%, 48%);
 		--gris3: hsl(45, 12%, 50%);
 		--gris4: hsl(48, 12%, 55%);
-		--gris5: hsl(50, 12%, 60%);
-		--gris6: hsl(50, 3%, 70%);
+		--gris5: hsl(50, 12%, 70%);
+		--gris6: hsl(50, 3%, 80%);
 
 		/* Color (de oscuro a claro) */
 		--color1:hsl(45, 100%, 10%);
@@ -59,7 +60,7 @@ const { title } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-		background: hsl(45, 10%, 3%);
+		background: var(--gris0);
 		font-size: 16px;
 		min-width: 800px;
 	}
@@ -71,7 +72,6 @@ const { title } = Astro.props;
 	}
 
 	h2{
-		color:var(--gris3);
 		font-size: 18px;
 		font-weight: bold;
 	}

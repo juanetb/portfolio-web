@@ -86,18 +86,22 @@
     cursor: pointer;
     text-align: left; /* Asegura que el texto esté centrado */
     background-size: cover;
-    color: var(--gris4);
+    color: var(--gris5);
     background-color: var(--gris1);
     background-blend-mode: multiply;
 }
 
 .caja:hover {
     transform: scale(1.02); /* Escala la caja al pasar el cursor */
-    background: var(--gris1);
+    background: var(--gris2);
     color:var(--gris6);
     background-size: cover;
     background-blend-mode: multiply;
-    border: 2px solid var(--color3);
+    border: 2px solid var(--gris6);
+}
+
+.caja:hover div{
+    background-color: var(--color2);
 }
 
 .c1{
@@ -113,7 +117,8 @@
     transition: 0.3s ease;
     background-blend-mode: multiply;
     color: var(--gris6);
-    border: 3px solid var(--color3);
+    border: 4px solid var(--color2);
+    z-index: 5;
   }
 
   /* Ocultar checkbox */
@@ -141,27 +146,28 @@
         font-weight: normal;
         margin: 4px;
         opacity: 0.7; 
-        color: var(--gris4);
     }
 
     .expand:checked +   .caja h2 {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: normal;
         margin: 4px;
         padding-left: 4px;
     }
 
 .expand:checked + .caja div{
-    background-color: var(--gris1);
+    background-color: var(--color2);
     margin: 0px;
     padding-block: 0px;
     padding-top: 24px;
+    z-index:10;
 }
 
 .caja div{
     margin: 2px;
     padding-block: 0px;
     padding-inline: 4px;
+    background-color: var(--gris1);
 }
 
 .menu a{
@@ -185,89 +191,7 @@
     margin-bottom: 5px; /* Espacio entre el SVG y el texto */
 }
 
-/* Estilos generales para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
 
-    .bentos {
-        grid-template-columns: 1fr; /* Cambia a una columna */
-        grid-gap: 10px;
-        max-width: 100%; /* Ocupa todo el ancho disponible */
-        padding: 10px; /* Añade padding para dar espacio en los márgenes */
-    }
-
-    .caja {
-        height: auto; /* Permite que la altura se ajuste al contenido */
-        flex-direction: column; /* Mantén los elementos apilados verticalmente */
-        padding: 16px;
-        gap: 6px; /* Ajusta el espacio entre los títulos */
-    }
-
-    .caja h1 {
-        font-size: 16px;
-    }
-
-    .caja h2 {
-        font-size: 14px;
-    }
-
-    .expand:checked + .caja {
-        grid-column: span 1; /* No expandir en móvil */
-        height: auto;
-    }
-
-    header {
-        right: 10px; /* Ajusta el margen lateral del header */
-    }
-
-    .menu a {
-        padding: 8px 12px; /* Espacio ajustado para botones */
-        font-size: 14px;
-    }
-}
-
-/* Ajustes para pantallas medianas (tabletas) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .bentos {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tabletas */
-    }
-
-    .caja {
-        height: 300px; /* Ajustar altura para tablets */
-    }
-
-    .menu a {
-        font-size: 15px;
-    }
-}
-@media (hover: none) {
-    .caja:hover {
-        transform: none; /* Desactiva el escalado al hover */
-    }
-}
-@media (max-width: 768px) {
-    header {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-    }
-
-    .menu {
-        display: none; /* Oculto inicialmente */
-    }
-
-    .menu.open {
-        display: block; /* Se muestra al abrir el menú */
-        position: absolute;
-        top: 40px;
-        left: 10px;
-        background: var(--gris2);
-        padding: 10px;
-        border-radius: 5px;
-    }
-}
 
 @keyframes showsection{
     from {
@@ -284,110 +208,124 @@ section {
     animation-name: showsection;
     animation-fill-mode: both;
     animation-timeline: --reveal;
-    animation-range: entry 1% cover 30%;
+    animation-range: entry 5% cover 40%;
+}
+
+/* Estilos generales para las cajas */
+.caja {
+    height: auto; /* Altura automática por defecto */
+    padding: 16px;
+    gap: 6px; /* Espacio entre elementos */
+}
+
+/* Estilos generales para el grid */
+.bentos {
+    display: grid; /* Asegúrate de que el contenedor use grid */
+    grid-gap: 10px; /* Espacio entre cajas */
+}
+
+/* Media Queries para pantallas pequeñas y tabletas */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Tamaño de fuente para móviles */
+    }
+
+    .bentos {
+        grid-template-columns: 1fr; /* Cambia a una columna */
+        padding: 10px; /* Espacio en los márgenes */
+    }
+
+    .caja {
+        flex-direction: column; /* Mantén los elementos apilados verticalmente */
+        height: 300px;
+    }
+
+    .caja h1 {
+        font-size: 16px; /* Ajustar tamaño del título */
+    }
+
+    .caja h2 {
+        font-size: 14px; /* Ajustar tamaño del subtítulo */
+    }
+
+    header {
+        position: fixed;
+        top: 10px;
+        left: 10px; /* Ajusta el margen lateral del header */
+    }
+    .c1{
+        grid-column: span 1;
+    
+    }
+
+    .menu a {
+        padding: 8px 12px; /* Espacio ajustado para botones */
+        font-size: 14px;
+    }
+
+    .expand:checked + .caja {
+        grid-column: span 1; /* No expandir en móvil */
+        width: 100%; /* Asegúrate de ocupar el ancho completo */
+        height: 300px; /* Permitir que la altura se ajuste al contenido */
+        background-size: contain;
+    }
+}
+
+/* Ajustes para pantallas medianas (tabletas) */
+@media (min-width: 768px) {
+    .bentos {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tabletas */
+    }
+
+    .caja {
+        height: 300px; /* Ajustar altura para tablets */
+    }
+
+    .menu a {
+        font-size: 15px; /* Ajustar tamaño del menú */
+    }
 }
 
 /* Para pantallas pequeñas (smartphones verticales) */
 @media (max-width: 480px) {
     .bentos {
         grid-template-columns: 1fr; /* Una columna */
-        grid-gap: 10px; /* Ajusta el espacio entre cajas */
+        grid-gap: 10px; /* Ajustar espacio entre cajas */
     }
 
-    .caja {
-        height: 250px; /* Reducir la altura */
-        text-align: center; /* Centra el texto en pantallas pequeñas */
-    }
-
-    .caja h1 {
-        font-size: 16px;
-    }
-
-    .caja h2 {
-        font-size: 10px;
-    }
-}
-
-/* Para pantallas medianas (tablets y móviles horizontales) */
-@media (min-width: 481px) and (max-width: 768px) {
-    .bentos {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-        grid-gap: 12px;
-    }
-
-    .caja {
-        height: 300px;
-    }
-
-    .caja h1 {
-        font-size: 12px;
-    }
-
-    .caja h2 {
-        font-size: 8px;
-    }
-
-    .expand:checked + .caja h1{
-        font-size: 12px;
-    }
-    .expand:checked + .caja h2{
-        font-size: 8px;
-    }
-
-    .expand:checked + .caja {
-        grid-column: span 2; 
-        width: 460px;
-        height: 360px; 
-        background: var(--gris6);
-        background-size: contain;
-        transition: 0.3s ease;
-        background-blend-mode: multiply;
-        color: var(--gris6);
-        border: 3px solid var(--color3);
-        background-repeat: no-repeat;
-      }
-
-}
-
-@media (max-width: 480px) {
-    .bentos {
-        grid-template-columns: repeat(1, 1fr); /* Dos columnas */
-        grid-gap: 12px;
-    }
-
-    .caja {
-        height: 300px;
-    }
-
-    .caja h1 {
-        font-size: 16px;
-    }
-
-    .caja h2 {
-        font-size: 12px;
-    }
-
-    .expand:checked + .caja h1{
-        font-size: 16px;
-    }
-    .expand:checked + .caja h2{
-        font-size: 12px;
-    }
+    
     .c1{
         grid-column: span 1;
+    
     }
+
+    .caja {
+        height: 200px; /* Reducir la altura */
+        text-align: center; /* Centrar texto */
+    }
+
+    .caja h1 {
+        font-size: 16px; /* Ajustar tamaño del título */
+    }
+
+    .caja h2 {
+        font-size: 12px; /* Ajustar tamaño del subtítulo */
+    }
+
     .expand:checked + .caja {
-        grid-column: span 1; 
-        width: 100%;
-        margin: auto;
-        height: 400px; 
+        height: 400px; /* Permitir que la altura se ajuste al contenido */
         background: var(--gris6);
-        background-size: contain;
-        transition: 0.3s ease;
-        background-blend-mode: multiply;
         color: var(--gris6);
         border: 3px solid var(--color3);
-        background-repeat: no-repeat;
-      }
-
+        background-size: contain;
+    }
 }
+
+/* Para dispositivos con hover deshabilitado */
+@media (hover: none) {
+    .caja:hover {
+        transform: none; /* Desactiva el escalado al hover */
+    }
+}
+
+
