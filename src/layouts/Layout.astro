@@ -22,7 +22,7 @@ const { title } = Astro.props;
 		<link rel="stylesheet" href="/estilos.css">
 	</head>
 	<body>
-		<div class=" fixed top-0 z-[-2] h-screen w-screen bg-[color:var(--gris0)] bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,var(--color1),rgba(255,255,255,0))]"></div>
+		<div class="fondo"></div>
 		<Header />
 		<slot />
 	</body>
@@ -54,6 +54,10 @@ const { title } = Astro.props;
 		scroll-behavior: smooth;
 	}
 
+	footer{
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
 	
 	body {
 		color:var(--gris3);
