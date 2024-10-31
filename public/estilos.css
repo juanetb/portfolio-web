@@ -282,7 +282,7 @@ section {
     .expand:checked + .caja {
         grid-column: span 1; /* No expandir en móvil */
         width: 100%; /* Asegúrate de ocupar el ancho completo */
-        height: 300px; /* Permitir que la altura se ajuste al contenido */
+        height: 400px; /* Permitir que la altura se ajuste al contenido */
         background-size: contain;
     }
 
@@ -296,7 +296,7 @@ section {
 /* Ajustes para pantallas medianas (tabletas) */
 @media (min-width: 768px) {
     .bentos {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tabletas */
+        grid-template-columns: repeat(3, 1fr); /* Dos columnas en tabletas */
     }
 
     .caja {
